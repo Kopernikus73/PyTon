@@ -14,17 +14,18 @@ Then put both, the folder and the Executable file in the same directory somewher
 
 The tree should look like this (only change "head_directory" to your actual head directory)
 
+```bash
 head_directory/
-├─ files/
-│  ├─ var1.py
-│  ├─ var2.py
-│  ├─ var3.py
-│  ├─ var4.py
-│  ├─ var5.py
-│  ├─ var6.py
-│  ├─ var7.py
-├─ PyTon-Linux-vx.x.x / Pyton-Windows-vx.x.x
-
+├── files/
+│   ├── var1.py
+│   ├── var2.py
+│   ├── var3.py
+│   ├── var4.py
+│   ├── var5.py
+│   ├── var6.py
+│   └── var7.py
+└── PyTon-Linux-vx.x.x / Pyton-Windows-vx.x.x
+```
 
 ### Manual installation and compiling using git (Linux only)
 #### 1. Download git
