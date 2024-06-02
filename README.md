@@ -11,6 +11,6 @@ Then put both, the folder and the Executable file in the same directory somewher
 If you are on Linux,
 run this in your terminal to get acces to it
 ```
-chmod +x PyTon-Linux-x.x.x
+chmod +x PyTon-Linux-vx.x.x
 ```
 (replace the x.x.x with the version of PyTon)
