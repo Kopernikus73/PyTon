@@ -5,7 +5,7 @@ use std::fs;
 
 fn main() {
     println!(
-"\x1b[4mWelcome to PyTon v0.1.3!\x1b[0m
+"\x1b[4mWelcome to PyTon v0.1.4!\x1b[0m
 
 You need to have Python installed for this software
 You will learn the basics of python programming and be able to create your first really own python program!
@@ -59,8 +59,8 @@ fn stages(){
         }else if output == "help"{
             println!("\n\x1b[4mPyTon Commands\x1b[0m");
             println!("help → shows this help message");
-            println!("run → runs the exercise-file");
             println!("help <part> → shows a help message for the chosen part of the exercise-file");
+            println!("run → runs the exercise-file");
             println!("pwd → prints the working directory");
             println!("exit → exits PyTon\n")
         } else if output == "help 0"{
@@ -75,7 +75,22 @@ fn stages(){
         if output == "run"{
             match start_py_file("files/var2.py") {
                 Ok(output) => {println!("{}", output);
-                if output == "Value : 5\n"{
+                let string_var:String;
+                match read_file("files/var2.py") {
+                    Ok(content) => {
+                        string_var = content;
+                    }
+                    Err(_) => {
+                        println!("Error reading file");
+                        string_var = format!("err_reading_file");
+                    }
+                }
+            
+                let mut split_out: Vec<&str> = string_var.split('\n').collect();
+                split_out.retain(|s|!s.contains('§'));
+
+
+                if output == "Value : 5\n" && split_out.iter().any(|word| word.contains("Value")) && split_out.iter().any(|word| word.contains("=")) && split_out.iter().any(|word| word.contains("5")){
                     println!("Correct! Now move on to var3.py and follow the instructions\n");
                     stage = 3;
                 }},
@@ -88,8 +103,8 @@ fn stages(){
         }else if output == "help"{
             println!("\n\x1b[4mPyTon Commands\x1b[0m");
             println!("help → shows this help message");
-            println!("run → runs the exercise-file");
             println!("help <part> → shows a help message for the chosen part of the exercise-file");
+            println!("run → runs the exercise-file");
             println!("pwd → prints the working directory");
             println!("exit → exits PyTon\n")
         } else if output == "help 0"{
@@ -98,13 +113,27 @@ fn stages(){
             println!("\nVariables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {}')\n","{x}")
         }
     }
-    
+
     while stage == 3{
         let output = get_input();
         if output == "run"{
             match start_py_file("files/var3.py") {
                 Ok(output) => {println!("{}", output);
-                if output == "My height in Meter is : 1.7\n"{
+                let string_var:String;
+                match read_file("files/var3.py") {
+                    Ok(content) => {
+                        string_var = content;
+                    }
+                    Err(_) => {
+                        println!("Error reading file");
+                        string_var = format!("err_reading_file");
+                    }
+                }
+            
+                let mut split_out: Vec<&str> = string_var.split('\n').collect();
+                split_out.retain(|s|!s.contains('§'));
+
+                if output == "My height in Meter is : 1.7\n" && split_out.iter().any(|word| word.contains("height")) && split_out.iter().any(|word| word.contains("=")) && split_out.iter().any(|word| word.contains("1.7")){
                     println!("Correct! Now move on to var4.py and follow the instructions\n");
                     stage = 4;
                 }},
@@ -117,9 +146,8 @@ fn stages(){
         }else if output == "help"{
             println!("\n\x1b[4mPyTon Commands\x1b[0m");
             println!("help → shows this help message");
-            println!("run → runs the exercise-file");
             println!("help <part> → shows a help message for the chosen part of the exercise-file");
-            println!("pwd → prints the working directory");
+            println!("run → runs the exercise-file");            println!("pwd → prints the working directory");
             println!("exit → exits PyTon\n")
         } else if output == "help 0"{
             println!("\nfloat(floating-point) Variables in Python are declared like following\ny = 4.2\n")
@@ -133,7 +161,21 @@ fn stages(){
         if output == "run"{
             match start_py_file("files/var4.py") {
                 Ok(output) => {println!("{}", output);
-                if output == "Is True: True\n"{
+                let string_var:String;
+                match read_file("files/var4.py") {
+                    Ok(content) => {
+                        string_var = content;
+                    }
+                    Err(_) => {
+                        println!("Error reading file");
+                        string_var = format!("err_reading_file");
+                    }
+                }
+            
+                let mut split_out: Vec<&str> = string_var.split('\n').collect();
+                split_out.retain(|s|!s.contains('§'));
+
+                if output == "Is True: True\n" && split_out.iter().any(|word| word.contains("status")) && split_out.iter().any(|word| word.contains("=")) && split_out.iter().any(|word| word.contains("True")){
                     println!("Correct! Now move on to var5.py and follow the instructions\n");
                     stage = 5;
                 }},
@@ -146,8 +188,8 @@ fn stages(){
         }else if output == "help"{
             println!("\n\x1b[4mPyTon Commands\x1b[0m");
             println!("help → shows this help message");
-            println!("run → runs the exercise-file");
             println!("help <part> → shows a help message for the chosen part of the exercise-file");
+            println!("run → runs the exercise-file");
             println!("pwd → prints the working directory");
             println!("exit → exits PyTon\n")
         } else if output == "help 0"{
@@ -162,6 +204,20 @@ fn stages(){
         if output == "run"{
             match start_py_file("files/var5.py") {
                 Ok(output) => {println!("{}", output);
+                let string_var:String;
+                match read_file("files/var5.py") {
+                    Ok(content) => {
+                        string_var = content;
+                    }
+                    Err(_) => {
+                        println!("Error reading file");
+                        string_var = format!("err_reading_file");
+                    }
+                }
+            
+                let mut split_out: Vec<&str> = string_var.split('\n').collect();
+                split_out.retain(|s|!s.contains('§'));
+
                 if output == "The 4 names are : ['Peter', 'Lisa', 'Bob', 'Marie']\nThe 2nd name is : Lisa\nThe first name and the last name are : ['Peter', 'Marie']\nThe 4 names are : ['Peter', 'Lisa', 'Paul', 'Marie']\n"{
                     println!("Correct!\n");
                     stage = 6;
@@ -175,8 +231,8 @@ fn stages(){
         }else if output == "help"{
             println!("\n\x1b[4mPyTon Commands\x1b[0m");
             println!("help → shows this help message");
-            println!("run → runs the exercise-file");
             println!("help <part> → shows a help message for the chosen part of the exercise-file");
+            println!("run → runs the exercise-file");
             println!("pwd → prints the working directory");
             println!("exit → exits PyTon\n")
         } else if output == "help 0"{
@@ -189,7 +245,7 @@ fn stages(){
 
 
     if stage == 6 {
-        println!("That's it for now in version 0.1.3")
+        println!("That's it for now in version 0.1.4")
     }
 }
 
@@ -199,8 +255,7 @@ fn read_file(file_name: &str) -> Result<String,String> {
 
     let parent_dir_of_exe = exe_path.parent().ok_or("The executable is not in a directory with a parent.")?;
     
-    let final_version_dir = parent_dir_of_exe.parent().ok_or("The directory containing the executable is not in a directory with a parent.")?;
-    let file_path = final_version_dir.join(file_name);
+   let file_path = parent_dir_of_exe.join(file_name);
     
     let contents = fs::read_to_string(file_path)
         .expect("Should have been able to read the file");
@@ -230,11 +285,8 @@ fn start_py_file(file_name: &str) -> Result<String, String> {
     // Erhalte das Elternverzeichnis des Executable
     let parent_dir_of_exe = exe_path.parent().ok_or("The executable is not in a directory with a parent.")?;
 
-    // Erhalte das Elternverzeichnis des Elternverzeichnisses
-    let final_version_dir = parent_dir_of_exe.parent().ok_or("The directory containing the executable is not in a directory with a parent.")?;
-    
     // Erstelle den vollständigen Pfad zur Python-Datei
-    let file_path = final_version_dir.join(file_name);
+    let file_path = parent_dir_of_exe.join(file_name);
 
     // Führe das Python-Skript aus und fange die Ausgabe ab
     let output = Command::new("python3")

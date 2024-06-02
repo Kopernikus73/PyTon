@@ -1,14 +1,14 @@
-# replace values in <> brackets with the needed value and remove the brackets
+# replace values in <> brackets with the needed value and remove the brackets §
 
-## var2.py
+## var2.py§
 
-# 0) Declare an int-variable `x` and assign the value 5 to it
-
-
-# ~ remove me and write your code here ~ [0]
+# 0) Declare an int-variable `x` and assign the value 5 to it §
 
 
-# 1) Use the print() function to print "Value : <int value>" by implementing `x`
+# ~ remove me and write your code here ~ [0] §
 
 
-# ~ remove me and write your code here ~ [1]
+# 1) Use the print() function to print "Value : <int value>" by implementing `x` §
+
+
+# ~ remove me and write your code here ~ [1] §
