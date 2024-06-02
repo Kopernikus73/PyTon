@@ -10,9 +10,6 @@ If you want to test it out, download the newest version of PyTon (depending on y
 
 Then put both, the folder and the Executable file in the same directory somewhere on your computer
 
-If you are on Linux,
-run this in your terminal to get acces to it
-
 (replace the x.x.x with the version of PyTon)
 
 ### Manual installation and compiling using git (Linux only)
