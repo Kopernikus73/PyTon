@@ -16,7 +16,7 @@ run this in your terminal to get acces to it
 (replace the x.x.x with the version of PyTon)
 
 ### Manual installation and compiling using git (Linux only)
-### 1. Download git
+#### 1. Download git
 You need to have git installed
 If you don't hvae it installed, you can simply install by using your package manager
 If you don't know your package manager, simply look it up on the internet
