@@ -12,6 +12,20 @@ Then put both, the folder and the Executable file in the same directory somewher
 
 (replace the x.x.x with the version of PyTon)
 
+The tree should look like this (only change "head_directory" to your actual head directory)
+
+head_directory/
+├─ files/
+│  ├─ var1.py
+│  ├─ var2.py
+│  ├─ var3.py
+│  ├─ var4.py
+│  ├─ var5.py
+│  ├─ var6.py
+│  ├─ var7.py
+├─ PyTon-Linux-vx.x.x / Pyton-Windows-vx.x.x
+
+
 ### Manual installation and compiling using git (Linux only)
 #### 1. Download git
 You need to have git installed
