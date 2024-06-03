@@ -2,13 +2,13 @@
 
 ## var4.py §
 
-# 0) Declare a list `name_list` and assign the value 'Peter','Lisa','Bob' and 'Marie' to it §
+# 0) Declare a list `name_list` and assign the values 'Peter','Lisa','Bob' and 'Marie' to it §
 
 
 # ~ remove me and write your code here ~ [0] §
 
 
-# 1) Use the print() function to print "The 4 names are: <list of names>" by implementing `name_list` (Later you will learn a way to make the output look better) §
+# 1) Use the print() function to print "The 4 names are : <list of names>" by implementing `name_list` (Later you will learn a way to make the output look better) §
 
 
 # ~ remove me and write your code here ~ [1] §
@@ -32,7 +32,7 @@
 # ~ remove me and write your code here ~ [3.2] §
 
 
+# 4) Change the 3rd name of `name_list` to `Paul` and print `name_list` again like this "The 4 names are : <new list value>" §
 
-# 4) Change the 3rd name of `name_list` to `Paul` and print `name_list again` like this "The 4 names are : <new list value>" §
 
 # ~ remove me and write your code here ~ [4] §

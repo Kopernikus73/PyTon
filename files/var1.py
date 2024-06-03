@@ -13,7 +13,7 @@
 # ~ remove me and write your code here ~ [0] §
 
 
-# 1) After you did that, change the print() statement to say "Hello, <string value>" by implementing the `name` variable §
+# 1) After you did that, change the print() statement to say "Hello, <string value>!" by implementing the `name` variable §
 
 
 print("Hello, World!") #[1]
