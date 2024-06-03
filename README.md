@@ -17,13 +17,6 @@ The tree should look like this (only change "head_directory" to your actual head
 ```bash
 head_directory/
 ├── files/
-│   ├── var1.py
-│   ├── var2.py
-│   ├── var3.py
-│   ├── var4.py
-│   ├── var5.py
-│   ├── var6.py
-│   └── var7.py
 └── PyTon-Linux-vx.x.x / Pyton-Windows-vx.x.x
 ```
 
