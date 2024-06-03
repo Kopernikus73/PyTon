@@ -8,9 +8,7 @@ PyTon is a free python learning software that is still in development
 
 If you want to test it out, download the newest version of PyTon (depending on your OS) and the files/ folder
 
-Then put both, the folder and the Executable file in the same directory somewhere on your computer
-
-(replace the x.x.x with the version of PyTon)
+Then put both, the folder and the Executable file, in the same directory somewhere on your computer
 
 The tree should look like this (only change "head_directory" to your actual head directory)
 
