@@ -32,7 +32,7 @@ sudo apt-get install git
 ```
 
 #### 2. Install rustc
-You also need to install the rust compiler "rustc" over your package manager, just as you did with git
+You also need to install the rust compiler "rustc" using your package manager, just as you did with git
 
 ##### Using the apt package manager
 ```
