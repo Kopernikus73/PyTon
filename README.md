@@ -26,8 +26,18 @@ You need to have git installed
 If you don't hvae it installed, you can simply install by using your package manager
 If you don't know your package manager, simply look it up on the internet
 
+##### Using the apt package manager
+```
+sudo apt-get install git
+```
+
 #### 2. Install rustc
 You also need to install the rust compiler "rustc" over your package manager, just as you did with git
+
+##### Using the apt package manager
+```
+sudo apt-get install rustc
+```
 
 #### 3. Clone the repository
 ```
