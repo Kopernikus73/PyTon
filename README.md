@@ -4,7 +4,7 @@ PyTon is a free python learning software that is still in development
 
 ## Installation
 
-### Using the realease tab
+### Using the release tab
 
 If you want to test it out, download the newest version of PyTon (depending on your OS) and the files/ folder
 
@@ -15,7 +15,7 @@ The tree should look like this (only change "head_directory" to your actual head
 ```bash
 head_directory/
 ├── files/
-└── PyTon-Linux-vx.x.x / Pyton-Windows-vx.x.x
+└── PyTon-Linux-x.x.x / PyTon-Windows-x.x.x
 ```
 
 ### Manual installation and compiling using git (Linux only)
@@ -61,7 +61,7 @@ mv main ../
  ### Windows
  If you are on windows, you can simply run the file over the Terminal
  ```
---/PyTon-Windows-vx.x.x
+--/PyTon-Windows-x.x.x
 ```
 Replace the 2 dashes with the name of the directory the file is in. And replace the x.x.x with the version of the downloaded file
 
@@ -71,35 +71,30 @@ If you are on a GNU/Linux based operating system, you can also simply run the fi
 --------------
 If you have installed PyTon over the releases tab on GitGub take the following steps
 
-#### Change working directory to the directory you have installed the PyTon-Linux-vx.x.x file in
+#### 1. Change working directory to the directory you have installed the PyTon-Linux-x.x.x file in
 ```
 cd --
 ```
 Replace the 2 dashes with the directory
 
-#### Gain acces to the file
+#### 2. Gain access to the file
 ```
-chmod +x PyTon-Linux-vx.x.x
+chmod +x PyTon-Linux-x.x.x
 ```
-#### Running the file
+#### 3.Running the file
 ```
-./PyTon-Linux-vx.x.x
+./PyTon-Linux-x.x.x
 ```
 ---------------
 If you have installed and compiled PyTon manually take the following steps
 
-#### Change working directory to the directory you have installed the PyTon-Linux-vx.x.x file in
+#### 1. Change working directory to the directory you have installed the PyTon-Linux-x.x.x file in
 ```
 cd --
 ```
 Replace the 2 dashes with the directory
 
-#### Gain acces to the file
-```
-chmod +x main
-```
-
-#### Running the file
+#### 2. Running the file
 ```
 ./main
 ```
