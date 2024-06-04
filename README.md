@@ -21,7 +21,8 @@ head_directory/
 ### Manual installation and compiling using git (Linux only)
 #### 1. Download git
 You need to have git installed
-If you don't hvae it installed, you can simply install by using your package manager
+If you don't have it installed, you can simply install by using your package manager
+
 If you don't know your package manager, simply look it up on the internet
 
 ##### Using the apt package manager
