@@ -4,8 +4,12 @@ use std::env;
 use std::fs;
 
 fn main() {
+    let mut stdout = stdout();
+    write!(stdout, "\x1B[2J").unwrap();
+    write!(stdout, "\x1B[H").unwrap();
+
     println!(
-"\x1b[4m\x1b[1mWelcome to PyTon v0.2.0!\x1b[0m
+"\x1b[4m\x1b[1mWelcome to PyTon v0.2.1!\x1b[0m
 
 You need to have Python installed for this software
 You will learn the basics of python programming and be able to create your first really own python program!
@@ -36,32 +40,31 @@ fn stages(){
     );
 
     let mut stage:i32 = 1;
-    let maximum = 8;
+    let mut exit: bool = false;
 
-
-    while stage <= maximum {
+    while stage < 8 {
         let stage_usize = stage as usize;
-
-        if stage == maximum {
-            println!("That's it for now in version 0.2.0")
-        }
 
         let output = get_input();
 
         if output == "run"{
-            stage = run(stage);
+            stage = run(&format!("var{}",stage),stage);
         } else if output == "exit" {
+            let mut stdout = stdout();
+            write!(stdout, "\x1B[2J").unwrap();
+            write!(stdout, "\x1B[H").unwrap();
+            exit = true;
             break
         } else if output == "clear" {
             clear_terminal();
             stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
+        } else if output == "pwf" {
+            pwf(&format!("var{}",stage))
         } else if output == "help"{
             help()
         } else if output.contains("help"){
             let mut parts = output.split_whitespace();
-            let _ = parts.next(); // skip "help"
+            let _ = parts.next();
             let part = parts.next();
             if let Some(part) = part {
                 let index = part.parse::<usize>().ok();
@@ -82,6 +85,43 @@ fn stages(){
             println!("\x1b[1A>{} -- no such command", output);
         }
     }
+
+    while stage == 8{
+        let output = get_input();
+
+        if output == "run"{
+            stage = run(&format!("test1"),stage);
+        } else if output == "exit" {
+            let mut stdout = stdout();
+            write!(stdout, "\x1B[2J").unwrap();
+            write!(stdout, "\x1B[H").unwrap();
+            exit = true;
+            break
+        } else if output == "clear" {
+            clear_terminal();
+            stdout().flush().unwrap();
+        } else if output == "pwf" {
+            pwf(&format!("test1"))
+        } else if output == "help"{
+            help()
+        } else{
+            println!("\x1b[1A>{} -- no such command", output);
+        }
+    }
+
+    if stage == 9 && exit == false{
+        println!("That's it for version 0.2.1");
+        let output = get_input();
+        loop{
+            if output != "æſðæ²³¼²¼ŋŋð½¬ł213dfsd↓…ø˝→˝¨’1231~ø→ł↓←aujshd123798sajðđſæ¢„«gfd¢„«dadshhgf”“¼½¬[²³¼²¹′¹dads′æſ@€ðſæððđſđ"{
+                let mut stdout = stdout();
+                write!(stdout, "\x1B[2J").unwrap();
+                write!(stdout, "\x1B[H").unwrap();
+                exit = true;
+                break
+            }
+        }
+    }
 }
 
 
@@ -91,7 +131,7 @@ fn clear_terminal() {
     let mut stdout = stdout();
     write!(stdout, "\x1B[2J").unwrap();
     write!(stdout, "\x1B[H").unwrap();
-    write!(stdout, "\x1b[4m\x1b[1mPyTon v0.2.0\x1b[0m\n\n").unwrap()
+    write!(stdout, "\x1b[4m\x1b[1mPyTon v0.2.1\x1b[0m\n\n").unwrap()
 }
 
 fn help(){
@@ -100,7 +140,7 @@ fn help(){
     println!("help <part> → shows a help message for the chosen part of the exercise-file");
     println!("run → runs the exercise-file");
     println!("clear → clears the terminal output");
-    println!("pwd → prints the working directory");
+    println!("pwf → prints the current exercise file (print working file)");
     println!("exit → exits PyTon\n")
 }
 
@@ -108,8 +148,8 @@ fn help_specific(text:&str){
     println!("{}\n",text);
 }
 
-fn run(stage:i32) -> i32{
-    let full_file_path = format!("files/var{}.py",&stage);
+fn run(file_name:&str,stage: i32) -> i32{
+    let full_file_path = format!("files/{}.py",&file_name);
 
     match start_py_file(&full_file_path) {
         Ok(output) => {println!("{}", output);
@@ -128,12 +168,39 @@ fn run(stage:i32) -> i32{
         split_out.retain(|s|!s.contains('§'));
 
 
-        if output == "Hello, Keith!\n" && split_out.iter().any(|word| word.contains("name")) && split_out.iter().any(|word| word.contains(" = ")) && split_out.iter().any(|word| word.contains("Keith"))
-            {
-            println!("Correct! Now move on to var{} and follow the instructions\n",stage+1);
+        // Stages Containment
+        let file_containment = 
+        vec!(
+            vec!("name","=","Keith"),
+            vec!("x","=","5"),
+            vec!("height","=","1.7"),
+            vec!("status","=","True"),
+            vec!("two_names","name_list","="),
+            vec!("food","two_foods","="),
+            vec!("Location","Planet","="),
+            vec!("1","1","1"),
+
+        );
+        let output_containment = 
+        vec!(
+            "Hello, Keith!\n",
+            "Value : 5\n",
+            "My height in Meter is : 1.7\n",
+            "Is True : True\n",
+            "The 4 names are : ['Peter', 'Lisa', 'Bob', 'Marie']\nThe 2nd name is : Lisa\nThe first name and the last name are : ['Peter', 'Marie']\nThe 4 names are : ['Peter', 'Lisa', 'Paul', 'Marie']\n",
+            "The 3 foods are : ('apple', 'orange', 'lemon')\nThe 2nd food is : orange\nThe first food and the last food are : ('apple', 'lemon')\nThe 3 new foods are : ('apple', 'orange', 'banana')\n",
+            "New York\nSan Diego\nEarth\n{'Country': 'USA', 'City': 'San Diego', 'Planet': 'Earth'}",
+            "Fortbite, Mineslaft, PyTon are my favorite games\nMy friends are : ('Jack', 'Robert', 'Timon')\nThe favorite numbers of my friends are 17, 42 and 73\n"
+        );
+        let stage_usize = stage as usize;
+
+
+        if output == output_containment[stage_usize-1] && split_out.iter().any(|word| word.contains(file_containment[stage_usize-1][0])) && split_out.iter().any(|word| word.contains(file_containment[stage_usize-1][1])) && split_out.iter().any(|word| word.contains(file_containment[stage_usize-1][2]))
+        {
+            println!("Correct! Now move on to the next file and follow the instructions (type `pwf` to see the file you are working on)\n");
             stage+1
-        }else{
-            stage 
+        } else{
+            stage
         }},
         Err(e) => {
             eprintln!("Error: {}", e);
@@ -142,8 +209,8 @@ fn run(stage:i32) -> i32{
     }
 }
 
-fn pwd(stage:i32){
-    println!("files/var{}.py\n",stage)
+fn pwf(file_name:&str){
+    println!("files/{}.py\n",file_name)
 }
 
 

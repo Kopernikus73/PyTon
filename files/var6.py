@@ -1,7 +1,7 @@
 # replace values in <> brackets with the needed value and remove the brackets §
 
 
-## var6.py §
+## var6.py
 
 # 0) Declare a tuple named `food` and assign the values 'apple', 'orange' and 'lemon' to it §
 
@@ -26,7 +26,7 @@
 # ~ remove me and write your code here ~ [3] §
 
 
-# 4) Change the 3rd food of `food` to `banana` and print `food` again like this "The 3 foods are : <new tuple value>" §
+# 4) Clone `food` into a variable called `new_food` to `banana` and print `new_food` like this "The 3 new foods are : <new tuple value>" §
 
 
 # ~ remove me and write your code here ~ [4] §
