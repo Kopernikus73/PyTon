@@ -1,5 +1,6 @@
 # replace values in <> brackets with the needed value and remove the brackets §
 
+
 ## var3.py §
 
 # 0) Declare a float-variable `height` and assign the value 1.7 to it §

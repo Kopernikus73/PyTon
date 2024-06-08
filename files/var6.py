@@ -1,6 +1,7 @@
 # replace values in <> brackets with the needed value and remove the brackets §
 
-## var4.py §
+
+## var6.py §
 
 # 0) Declare a tuple named `food` and assign the values 'apple', 'orange' and 'lemon' to it §
 

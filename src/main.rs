@@ -24,9 +24,30 @@ Here you can run commands, such as `help` to show a short help message\n"
 }
 
 fn stages(){
+    let stage_help = 
+    vec! (
+    vec! ("String Variables in Python are declared like following\ny = 'Hello, World!'".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string()),
+    vec!("int(integer) Variables in Python are declared like following\ny = 42".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string()),
+    vec!("float(floating-point) Variables in Python are declared like following\ny = 4.2".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string()),
+    vec!("bool(booleans) Variables in Python are declared like following\ny = True\nz = False".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string()),
+    vec!("Lists in Python are declared like following\ny = ['hello',2,True,4.2]".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string(),"To get the value of a certain part of a list, use the following command\ngame_list = ['mineslaft','Fortbite']\nsecond_part_of_game_list = game_list[1]".to_string(),"Lists in Python are declared like following\ny = ['hello',2,True,4.2]".to_string(),"You can append python lists by using the following command\ngame_list = ['mineslaft','Fortbite']\ngame_list.append('Taster in Tasting Town')".to_string(),"To change the value of a certain part of a list, use the following command\ngame_list = ['mineslaft','Fortbite']\ngame_list[1] = 'Taster in Tasting Town'".to_string()),
+    vec!("Tuples in Python are declared like following\ny = ('hello',2,True,4.2)".to_string(),"Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')".to_string(),"To get the value of a certain part of a tuple, use the following command\ngame_tuple = ['mineslaft','Fortbite']\nsecond_part_of_game_tuple = game_list[1]".to_string(),"Tuples with parts of different tuples/lists in Python are declared like following\ny = ('hello',2,True,4.2)\nz = (y[0],y[5])".to_string(),"To change the value of a certain part of a tuple, use the following command\ngame_list = ('mineslaft','Fortbite')\ngame_list[1] = 'Taster in Tasting Town'".to_string()),
+    vec!("Dictionaries in Python are declared like following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}".to_string(),"To get a value that is assigned to another value in the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheight_of_Mark = heights['Mark']".to_string(),"To change a value that is assigned to another value in the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheights['Jenna'] = '1.6m'".to_string(),"To add a new value and a value that is assigned to it, to the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheights['Kyle'] = '1.9m'".to_string(),"To print a whole dictionary, just do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nprint(heights)".to_string())
+    );
+
     let mut stage:i32 = 1;
-    while stage == 1{
+    let maximum = 8;
+
+
+    while stage <= maximum {
+        let stage_usize = stage as usize;
+
+        if stage == maximum {
+            println!("That's it for now in version 0.2.0")
+        }
+
         let output = get_input();
+
         if output == "run"{
             stage = run(stage);
         } else if output == "exit" {
@@ -38,156 +59,28 @@ fn stages(){
             pwd(stage)
         } else if output == "help"{
             help()
-        } else if output == "help 0"{
-            help_specific("String Variables in Python are declared like following\ny = 'Hello, World!'")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
+        } else if output.contains("help"){
+            let mut parts = output.split_whitespace();
+            let _ = parts.next(); // skip "help"
+            let part = parts.next();
+            if let Some(part) = part {
+                let index = part.parse::<usize>().ok();
+                if let Some(index) = index {
+                    if index < stage_help[stage_usize-1].len() {
+                        help_specific(&stage_help[stage_usize-1][index]);
+                    } else {
+                        println!("\x1b[1A>{} -- no such command", output);
+                    }
+                } else {
+                    println!("\x1b[1A>{} -- no such command", output);
+                }
+            } else {
+                println!("\x1b[1A>{} -- no such command", output);
+            }
+        
+        } else{
+            println!("\x1b[1A>{} -- no such command", output);
         }
-    }
-    
-    while stage == 2{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("int(integer) Variables in Python are declared like following\ny = 42")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
-        }
-    }
-
-    while stage == 3{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("float(floating-point) Variables in Python are declared like following\ny = 4.2")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
-        }
-    }
-
-    while stage == 4{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("bool(booleans) Variables in Python are declared like following\ny = True\nz = False")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
-        }
-    }
-
-    while stage == 5{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("Lists in Python are declared like following\ny = ['hello',2,True,4.2]")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
-        } else if output == "help 2"{
-            help_specific("To get the value of a certain part of a list, use the following command\ngame_list = ['mineslaft','Fortbite']\nsecond_part_of_game_list = game_list[1]")
-        } else if output == "help 3.1"{
-            help_specific("Lists in Python are declared like following\ny = ['hello',2,True,4.2]")
-        } else if output == "help 3.2"{
-            help_specific("You can append python lists by using the following command\ngame_list = ['mineslaft','Fortbite']\ngame_list.append('Taster in Tasting Town')")
-        } else if output == "help 4"{
-            help_specific("To change the value of a certain part of a list, use the following command\ngame_list = ['mineslaft','Fortbite']\ngame_list[1] = 'Taster in Tasting Town'")
-        }
-
-    }
-
-    while stage == 6{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("Tuples in Python are declared like following\ny = ('hello',2,True,4.2)")
-        } else if output == "help 1"{
-            help_specific("Variables are implemented into Strings/print statements like following\nx = 'text :p'\nprint(f'Output: {x}')")
-        } else if output == "help 2"{
-            help_specific("To get the value of a certain part of a tuple, use the following command\ngame_tuple = ['mineslaft','Fortbite']\nsecond_part_of_game_tuple = game_list[1]")
-        } else if output == "help 3"{
-            help_specific("Tuples with parts of different tuples/lists in Python are declared like following\ny = ('hello',2,True,4.2)\nz = (y[0],y[5])")
-        } else if output == "help 4"{
-            help_specific("To change the value of a certain part of a tuple, use the following command\ngame_list = ('mineslaft','Fortbite')\ngame_list[1] = 'Taster in Tasting Town'")
-        }
-    }
-
-    while stage == 7{
-        let output = get_input();
-        if output == "run"{
-            stage = run(stage);
-        } else if output == "exit" {
-            break
-        } else if output == "clear" {
-            clear_terminal();
-            stdout().flush().unwrap();
-        } else if output == "pwd" {
-            pwd(stage)
-        } else if output == "help"{
-            help()
-        } else if output == "help 0"{
-            help_specific("Dictionaries in Python are declared like following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}");
-        } else if output == "help 1"{
-            help_specific("To get a value that is assigned to another value in the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheight_of_Mark = heights['Mark']");
-        } else if output == "help 2"{
-            help_specific("To change a value that is assigned to another value in the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheights['Jenna'] = '1.6m'");
-        } else if output == "help 3"{
-            help_specific("To add a new value and a value that is assigned to it, to the dictionary, do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nheights['Kyle'] = '1.9m'")
-        } else if output == "help 3"{
-            help_specific("To print a whole dictionary, just do the following\nheights = {'Mark':'1.8m','Jenna':'1.7m'}\nprint(heights)")
-        }
-    }
-
-    if stage == 8 {
-        println!("That's it for now in version 0.2.0")
     }
 }
 
@@ -273,7 +166,7 @@ fn read_file(file_name: &str) -> Result<String,String> {
 
 fn get_input() -> String{
     let mut input = String::new();
-    print!("> ");
+    print!(">");
     stdout().flush().unwrap();
     // Lesen der Benutzereingabe und Speichern im String-Objekt
     std::io::stdin().read_line(&mut input)

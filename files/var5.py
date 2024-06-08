@@ -1,6 +1,7 @@
 # replace values in <> brackets with the needed value and remove the brackets §
 
-## var4.py §
+
+## var5.py §
 
 # 0) Declare a list `name_list` and assign the values 'Peter','Lisa','Bob' and 'Marie' to it §
 
@@ -20,19 +21,19 @@
 # ~ remove me and write your code here ~ [2] §
 
 
-# 3.1) After that, make a new empty list called `two_names` §
+# 3) After that, make a new empty list called `two_names` §
 
 
-# ~ remove me and write your code here ~ [3.1] §
+# ~ remove me and write your code here ~ [3] §
 
 
-# 3.2) Now append it with the first and the last value of `name_list` and print it afterwards like this "The first name and the last name are : <list value>" §
-
-
-# ~ remove me and write your code here ~ [3.2] §
-
-
-# 4) Change the 3rd name of `name_list` to `Paul` and print `name_list` again like this "The 4 names are : <new list value>" §
+# 4) Now append it with the first and the last value of `name_list` and print it afterwards like this "The first name and the last name are : <list value>" §
 
 
 # ~ remove me and write your code here ~ [4] §
+
+
+# 5) Change the 3rd name of `name_list` to `Paul` and print `name_list` again like this "The 4 names are : <new list value>" §
+
+
+# ~ remove me and write your code here ~ [5] §

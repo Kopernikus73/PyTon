@@ -1,5 +1,6 @@
 # replace values in <> brackets with the needed value and remove the brackets §
 
+
 ## var2.py§
 
 # 0) Declare an int-variable `x` and assign the value 5 to it §
